@@ -1,0 +1,652 @@
+{
+  "foods": {
+    "apple": {
+      "calories": 52,
+      "protein": 0.3,
+      "carbs": 14,
+      "fat": 0.2,
+      "source": "default"
+    },
+    "banana": {
+      "calories": 89,
+      "protein": 1.1,
+      "carbs": 23,
+      "fat": 0.3,
+      "source": "default"
+    },
+    "pizza": {
+      "calories": 266,
+      "protein": 11,
+      "carbs": 33,
+      "fat": 10,
+      "source": "default"
+    },
+    "burger": {
+      "calories": 295,
+      "protein": 17,
+      "carbs": 28,
+      "fat": 14,
+      "source": "default"
+    },
+    "hamburger": {
+      "calories": 295,
+      "protein": 17,
+      "carbs": 28,
+      "fat": 14,
+      "source": "default"
+    },
+    "cheeseburger": {
+      "calories": 313,
+      "protein": 18,
+      "carbs": 28,
+      "fat": 16,
+      "source": "default"
+    },
+    "hot dog": {
+      "calories": 290,
+      "protein": 10,
+      "carbs": 4,
+      "fat": 26,
+      "source": "default"
+    },
+    "french fries": {
+      "calories": 365,
+      "protein": 4,
+      "carbs": 63,
+      "fat": 17,
+      "source": "default"
+    },
+    "ice cream": {
+      "calories": 207,
+      "protein": 3.5,
+      "carbs": 24,
+      "fat": 11,
+      "source": "default"
+    },
+    "donut": {
+      "calories": 452,
+      "protein": 5,
+      "carbs": 51,
+      "fat": 25,
+      "source": "default"
+    },
+    "sandwich": {
+      "calories": 250,
+      "protein": 12,
+      "carbs": 30,
+      "fat": 8,
+      "source": "default"
+    },
+    "pasta": {
+      "calories": 220,
+      "protein": 8,
+      "carbs": 44,
+      "fat": 1.5,
+      "source": "default"
+    },
+    "rice": {
+      "calories": 130,
+      "protein": 2.7,
+      "carbs": 28,
+      "fat": 0.3,
+      "source": "default"
+    },
+    "chicken": {
+      "calories": 239,
+      "protein": 27,
+      "carbs": 0,
+      "fat": 14,
+      "source": "default"
+    },
+    "salad": {
+      "calories": 33,
+      "protein": 3,
+      "carbs": 6,
+      "fat": 0.3,
+      "source": "default"
+    },
+    "bread": {
+      "calories": 265,
+      "protein": 9,
+      "carbs": 49,
+      "fat": 3.2,
+      "source": "default"
+    },
+    "egg": {
+      "calories": 155,
+      "protein": 13,
+      "carbs": 1.1,
+      "fat": 11,
+      "source": "default"
+    },
+    "milk": {
+      "calories": 42,
+      "protein": 3.4,
+      "carbs": 5,
+      "fat": 1,
+      "source": "default"
+    },
+    "cheese": {
+      "calories": 402,
+      "protein": 25,
+      "carbs": 1.3,
+      "fat": 33,
+      "source": "default"
+    },
+    "yogurt": {
+      "calories": 59,
+      "protein": 10,
+      "carbs": 3.6,
+      "fat": 0.4,
+      "source": "default"
+    },
+    "orange": {
+      "calories": 47,
+      "protein": 0.9,
+      "carbs": 12,
+      "fat": 0.1,
+      "source": "default"
+    },
+    "strawberry": {
+      "calories": 32,
+      "protein": 0.7,
+      "carbs": 8,
+      "fat": 0.3,
+      "source": "default"
+    },
+    "broccoli": {
+      "calories": 34,
+      "protein": 2.8,
+      "carbs": 7,
+      "fat": 0.4,
+      "source": "default"
+    },
+    "carrot": {
+      "calories": 41,
+      "protein": 0.9,
+      "carbs": 10,
+      "fat": 0.2,
+      "source": "default"
+    },
+    "tomato": {
+      "calories": 18,
+      "protein": 0.9,
+      "carbs": 3.9,
+      "fat": 0.2,
+      "source": "default"
+    },
+    "potato": {
+      "calories": 77,
+      "protein": 2,
+      "carbs": 17,
+      "fat": 0.1,
+      "source": "default"
+    },
+    "fish": {
+      "calories": 206,
+      "protein": 22,
+      "carbs": 0,
+      "fat": 12,
+      "source": "default"
+    },
+    "cake": {
+      "calories": 257,
+      "protein": 4,
+      "carbs": 46,
+      "fat": 7,
+      "source": "default"
+    },
+    "cookie": {
+      "calories": 502,
+      "protein": 5.9,
+      "carbs": 64,
+      "fat": 24,
+      "source": "default"
+    },
+    "chocolate": {
+      "calories": 546,
+      "protein": 4.9,
+      "carbs": 61,
+      "fat": 31,
+      "source": "default"
+    },
+    "coffee": {
+      "calories": 2,
+      "protein": 0.3,
+      "carbs": 0,
+      "fat": 0,
+      "source": "default"
+    },
+    "tea": {
+      "calories": 1,
+      "protein": 0,
+      "carbs": 0.3,
+      "fat": 0,
+      "source": "default"
+    },
+    "soda": {
+      "calories": 41,
+      "protein": 0,
+      "carbs": 10.6,
+      "fat": 0,
+      "source": "default"
+    },
+    "fried rice": {
+      "calories": 136.0,
+      "protein": 3.2,
+      "carbs": 23.6,
+      "fat": 2.8,
+      "source": "openfoodfacts"
+    },
+    "egg omlatte": {
+      "calories": 161.0,
+      "protein": 5.4,
+      "carbs": 13.0,
+      "fat": 9.2,
+      "source": "openfoodfacts"
+    },
+    "dosa": {
+      "calories": 138.0,
+      "protein": 1.74,
+      "carbs": 29.32,
+      "fat": 1.61,
+      "source": "openfoodfacts"
+    },
+    "begal": {
+      "calories": 375.0,
+      "protein": 12.5,
+      "carbs": 77.5,
+      "fat": 1.875,
+      "source": "openfoodfacts"
+    },
+    "burrito": {
+      "calories": 105.0,
+      "protein": 3.09,
+      "carbs": 18.9,
+      "fat": 1.6,
+      "source": "openfoodfacts"
+    },
+    "egg roll": {
+      "calories": 180.0,
+      "protein": 6.8,
+      "carbs": 23.0,
+      "fat": 6.2,
+      "source": "openfoodfacts"
+    },
+    "chicken briyani": {
+      "calories": 300.0,
+      "protein": 10.0,
+      "carbs": 30.0,
+      "fat": 10.0,
+      "source": "openfoodfacts"
+    },
+    "spaghetti squash": {
+      "calories": 230.7692,
+      "protein": 15.3846,
+      "carbs": 46.1538,
+      "fat": 0.0,
+      "source": "openfoodfacts"
+    },
+    "mutton briyani": {
+      "calories": "Unknown",
+      "protein": "Unknown",
+      "carbs": "Unknown",
+      "fat": "Unknown",
+      "source": "user_added"
+    }
+  },
+  "learning_data": {
+    "corrections": [
+      {
+        "id": 1,
+        "predicted": "Chocolate Cake",
+        "correct": "brownie",
+        "confidence": 78.5,
+        "timestamp": "2024-01-15T10:30:45.123456"
+      },
+      {
+        "id": 2,
+        "predicted": "Pizza",
+        "correct": "flatbread",
+        "confidence": 65.2,
+        "timestamp": "2024-01-15T14:22:15.789012"
+      },
+      {
+        "id": 3,
+        "predicted": "Strawberry",
+        "correct": "apple",
+        "confidence": 14.400691986083984,
+        "timestamp": "2025-08-21T17:04:41.281334"
+      },
+      {
+        "id": 4,
+        "predicted": "Apple",
+        "correct": "strawberry",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:13:34.445366"
+      },
+      {
+        "id": 5,
+        "predicted": "Apple",
+        "correct": "srawberry",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:14:41.401157"
+      },
+      {
+        "id": 6,
+        "predicted": "Apple",
+        "correct": "strawberry",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:17:02.408352"
+      },
+      {
+        "id": 7,
+        "predicted": "Apple",
+        "correct": "strawberry",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:26:24.804382"
+      },
+      {
+        "id": 8,
+        "predicted": "Apple",
+        "correct": "idk",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:26:48.105487"
+      },
+      {
+        "id": 9,
+        "predicted": "Flatbread",
+        "correct": "naan",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:28:02.426448"
+      },
+      {
+        "id": 10,
+        "predicted": "Flatbread",
+        "correct": "naan",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:29:25.567709"
+      },
+      {
+        "id": 11,
+        "predicted": "Flatbread",
+        "correct": "naan",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:29:38.587751"
+      },
+      {
+        "id": 12,
+        "predicted": "flatbread",
+        "correct": "naan",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:32:32.664831"
+      },
+      {
+        "id": 13,
+        "predicted": "flatbread",
+        "correct": "flatbread",
+        "confidence": 95,
+        "timestamp": "2025-08-21T17:34:36.457497"
+      },
+      {
+        "id": 14,
+        "predicted": "flatbread",
+        "correct": "its fried rice",
+        "confidence": 35.44833526611328,
+        "timestamp": "2025-08-21T17:34:54.122254"
+      },
+      {
+        "id": 15,
+        "predicted": "Flatbread",
+        "correct": "fried rice",
+        "confidence": 35.44833526611328,
+        "timestamp": "2025-08-21T17:35:47.636382"
+      },
+      {
+        "id": 16,
+        "predicted": "fried rice",
+        "correct": "fried rice",
+        "confidence": 35.44833526611328,
+        "timestamp": "2025-08-21T17:41:59.845670"
+      },
+      {
+        "id": 17,
+        "predicted": "fried rice",
+        "correct": "egg omlate",
+        "confidence": 39.09174499511719,
+        "timestamp": "2025-08-22T11:41:17.051786"
+      },
+      {
+        "id": 18,
+        "predicted": "fried rice",
+        "correct": "its egg omlate",
+        "confidence": 39.09174499511719,
+        "timestamp": "2025-08-22T11:41:33.210011"
+      },
+      {
+        "id": 19,
+        "predicted": "eggnog",
+        "correct": "egg omelette",
+        "confidence": 30.0405330657959,
+        "timestamp": "2025-08-22T11:42:26.713247"
+      },
+      {
+        "id": 20,
+        "predicted": "egg omelette",
+        "correct": "egg omelette",
+        "confidence": 36.04863967895508,
+        "timestamp": "2025-08-22T11:42:43.703316"
+      },
+      {
+        "id": 21,
+        "predicted": "fried rice",
+        "correct": "egg omelette",
+        "confidence": 39.09174499511719,
+        "timestamp": "2025-08-22T11:42:50.987469"
+      },
+      {
+        "id": 22,
+        "predicted": "fried rice",
+        "correct": "egg omelette",
+        "confidence": 39.09174499511719,
+        "timestamp": "2025-08-22T11:43:02.221865"
+      },
+      {
+        "id": 23,
+        "predicted": "fried rice",
+        "correct": "fried rice",
+        "confidence": 35.44833526611328,
+        "timestamp": "2025-08-22T11:58:20.873039"
+      },
+      {
+        "id": 24,
+        "predicted": "fried rice",
+        "correct": "egg omlatte",
+        "confidence": 39.091749572753905,
+        "timestamp": "2025-08-22T11:59:20.789604"
+      },
+      {
+        "id": 25,
+        "predicted": "idk",
+        "correct": "apple",
+        "confidence": 14.746858978271483,
+        "timestamp": "2025-08-22T12:00:54.713735"
+      },
+      {
+        "id": 26,
+        "predicted": "fried rice",
+        "correct": "egg omelette",
+        "confidence": 39.09174499511719,
+        "timestamp": "2025-08-22T12:12:09.178139"
+      },
+      {
+        "id": 27,
+        "predicted": "fried rice",
+        "correct": "egg omelette",
+        "confidence": 39.09174499511719,
+        "timestamp": "2025-08-22T12:12:19.147808"
+      },
+      {
+        "id": 28,
+        "predicted": "egg omelette",
+        "correct": "egg omelette",
+        "confidence": 36.04863967895508,
+        "timestamp": "2025-08-22T12:12:34.212604"
+      },
+      {
+        "id": 29,
+        "predicted": "hotdog",
+        "correct": "dosa",
+        "confidence": 32.302940368652344,
+        "timestamp": "2025-08-22T12:13:50.327335"
+      },
+      {
+        "id": 30,
+        "predicted": "dosa",
+        "correct": "dosa",
+        "confidence": 38.763528442382814,
+        "timestamp": "2025-08-22T12:17:06.458526"
+      },
+      {
+        "id": 31,
+        "predicted": "fried rice",
+        "correct": "egg omelette",
+        "confidence": 39.091749572753905,
+        "timestamp": "2025-08-22T12:27:43.077380"
+      },
+      {
+        "id": 32,
+        "predicted": "bagel",
+        "correct": "donut",
+        "confidence": 1.5543012619018555,
+        "timestamp": "2025-08-22T12:32:34.264052"
+      },
+      {
+        "id": 33,
+        "predicted": "donut",
+        "correct": "donut",
+        "confidence": 1.8651615142822264,
+        "timestamp": "2025-08-22T12:32:51.319825"
+      },
+      {
+        "id": 34,
+        "predicted": "donut",
+        "correct": "donut",
+        "confidence": 1.8651615142822264,
+        "timestamp": "2025-08-22T12:33:31.878986"
+      },
+      {
+        "id": 35,
+        "predicted": "donut",
+        "correct": "donut",
+        "confidence": 1.8651615142822264,
+        "timestamp": "2025-08-22T12:36:09.526710"
+      },
+      {
+        "id": 36,
+        "predicted": "donut",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T12:36:39.097285"
+      },
+      {
+        "id": 37,
+        "predicted": "donut",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T12:37:20.822621"
+      },
+      {
+        "id": 38,
+        "predicted": "donut",
+        "correct": "begal",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T13:30:50.547940"
+      },
+      {
+        "id": 39,
+        "predicted": "begal",
+        "correct": "begal",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T13:30:59.657476"
+      },
+      {
+        "id": 40,
+        "predicted": "begal",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T13:31:31.850742"
+      },
+      {
+        "id": 41,
+        "predicted": "begal",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T13:31:40.772292"
+      },
+      {
+        "id": 42,
+        "predicted": "begal",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T13:32:44.509824"
+      },
+      {
+        "id": 43,
+        "predicted": "begal",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T13:32:54.585512"
+      },
+      {
+        "id": 44,
+        "predicted": "burrito",
+        "correct": "egg roll",
+        "confidence": 43.06412124633789,
+        "timestamp": "2025-08-22T13:34:28.989403"
+      },
+      {
+        "id": 45,
+        "predicted": "begal",
+        "correct": "donut",
+        "confidence": 95.0,
+        "timestamp": "2025-08-22T14:39:17.316657"
+      },
+      {
+        "id": 46,
+        "predicted": "ice cream",
+        "correct": "chicken briyani",
+        "confidence": 2.5000126361846924,
+        "timestamp": "2025-08-23T14:56:09.248775"
+      },
+      {
+        "id": 47,
+        "predicted": "chicken briyani",
+        "correct": "ice cream",
+        "confidence": 95.0,
+        "timestamp": "2025-08-23T14:56:42.982849"
+      },
+      {
+        "id": 48,
+        "predicted": "ice cream",
+        "correct": "ice cream",
+        "confidence": 95.0,
+        "timestamp": "2025-08-23T14:57:06.215692"
+      },
+      {
+        "id": 49,
+        "predicted": "spaghetti squash",
+        "correct": "mutton briyani",
+        "confidence": 3.117011070251465,
+        "timestamp": "2025-08-24T16:14:08.535972"
+      }
+    ],
+    "total_corrections": 50,
+    "last_updated": "2025-08-24T16:14:08.566093"
+  },
+  "statistics": {
+    "total_predictions": 77,
+    "correct_predictions": 34,
+    "accuracy_rate": 44.15584415584416
+  }
+}

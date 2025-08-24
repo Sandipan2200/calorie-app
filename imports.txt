@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.applications.resnet import preprocess_input, decode_predictions
+from tensorflow.keras.preprocessing import image
+from PIL import Image, ImageOps, ImageTk
+import matplotlib.pyplot as plt
+import requests
+from io import BytesIO
+import os
+import json
+import pickle
+from datetime import datetime
+import tkinter as tk
+from tkinter import messagebox, simpledialog, ttk, filedialog
+
+# Rest of your existing code will be merged here...
