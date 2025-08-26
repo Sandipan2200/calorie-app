@@ -1,0 +1,629 @@
+{
+  "foods": {
+    "apple": {
+      "calories": 52,
+      "protein": 0.3,
+      "carbs": 14,
+      "fat": 0.2,
+      "fiber": 2.4,
+      "sugar": 10.4,
+      "sodium": 1,
+      "source": "default"
+    },
+    "banana": {
+      "calories": 89,
+      "protein": 1.1,
+      "carbs": 23,
+      "fat": 0.3,
+      "fiber": 2.6,
+      "sugar": 12.2,
+      "sodium": 1,
+      "source": "default"
+    },
+    "orange": {
+      "calories": 47,
+      "protein": 0.9,
+      "carbs": 12,
+      "fat": 0.1,
+      "fiber": 2.4,
+      "sugar": 9.4,
+      "sodium": 0,
+      "source": "default"
+    },
+    "strawberry": {
+      "calories": 32,
+      "protein": 0.7,
+      "carbs": 8,
+      "fat": 0.3,
+      "fiber": 2.0,
+      "sugar": 4.9,
+      "sodium": 1,
+      "source": "default"
+    },
+    "grapes": {
+      "calories": 62,
+      "protein": 0.6,
+      "carbs": 16,
+      "fat": 0.2,
+      "fiber": 0.9,
+      "sugar": 16,
+      "sodium": 2,
+      "source": "default"
+    },
+    "broccoli": {
+      "calories": 34,
+      "protein": 2.8,
+      "carbs": 7,
+      "fat": 0.4,
+      "fiber": 2.6,
+      "sugar": 1.5,
+      "sodium": 33,
+      "source": "default"
+    },
+    "carrot": {
+      "calories": 41,
+      "protein": 0.9,
+      "carbs": 10,
+      "fat": 0.2,
+      "fiber": 2.8,
+      "sugar": 4.7,
+      "sodium": 69,
+      "source": "default"
+    },
+    "tomato": {
+      "calories": 18,
+      "protein": 0.9,
+      "carbs": 3.9,
+      "fat": 0.2,
+      "fiber": 1.2,
+      "sugar": 2.6,
+      "sodium": 5,
+      "source": "default"
+    },
+    "potato": {
+      "calories": 77,
+      "protein": 2,
+      "carbs": 17,
+      "fat": 0.1,
+      "fiber": 2.2,
+      "sugar": 0.8,
+      "sodium": 6,
+      "source": "default"
+    },
+    "spinach": {
+      "calories": 23,
+      "protein": 2.9,
+      "carbs": 3.6,
+      "fat": 0.4,
+      "fiber": 2.2,
+      "sugar": 0.4,
+      "sodium": 79,
+      "source": "default"
+    },
+    "chicken": {
+      "calories": 239,
+      "protein": 27,
+      "carbs": 0,
+      "fat": 14,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 82,
+      "source": "default"
+    },
+    "beef": {
+      "calories": 250,
+      "protein": 26,
+      "carbs": 0,
+      "fat": 15,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 72,
+      "source": "default"
+    },
+    "fish": {
+      "calories": 206,
+      "protein": 22,
+      "carbs": 0,
+      "fat": 12,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 59,
+      "source": "default"
+    },
+    "egg": {
+      "calories": 155,
+      "protein": 13,
+      "carbs": 1.1,
+      "fat": 11,
+      "fiber": 0,
+      "sugar": 1.1,
+      "sodium": 124,
+      "source": "default"
+    },
+    "tofu": {
+      "calories": 76,
+      "protein": 8,
+      "carbs": 1.9,
+      "fat": 4.8,
+      "fiber": 0.3,
+      "sugar": 0.6,
+      "sodium": 7,
+      "source": "default"
+    },
+    "rice": {
+      "calories": 130,
+      "protein": 2.7,
+      "carbs": 28,
+      "fat": 0.3,
+      "fiber": 0.4,
+      "sugar": 0.1,
+      "sodium": 5,
+      "source": "default"
+    },
+    "pasta": {
+      "calories": 220,
+      "protein": 8,
+      "carbs": 44,
+      "fat": 1.5,
+      "fiber": 2.5,
+      "sugar": 2.7,
+      "sodium": 6,
+      "source": "default"
+    },
+    "bread": {
+      "calories": 265,
+      "protein": 9,
+      "carbs": 49,
+      "fat": 3.2,
+      "fiber": 2.7,
+      "sugar": 5.7,
+      "sodium": 681,
+      "source": "default"
+    },
+    "quinoa": {
+      "calories": 120,
+      "protein": 4.4,
+      "carbs": 22,
+      "fat": 1.9,
+      "fiber": 2.8,
+      "sugar": 0.9,
+      "sodium": 7,
+      "source": "default"
+    },
+    "oats": {
+      "calories": 68,
+      "protein": 2.4,
+      "carbs": 12,
+      "fat": 1.4,
+      "fiber": 1.7,
+      "sugar": 0.3,
+      "sodium": 49,
+      "source": "default"
+    },
+    "pizza": {
+      "calories": 266,
+      "protein": 11,
+      "carbs": 33,
+      "fat": 10,
+      "fiber": 2.3,
+      "sugar": 3.6,
+      "sodium": 598,
+      "source": "default"
+    },
+    "burger": {
+      "calories": 295,
+      "protein": 17,
+      "carbs": 28,
+      "fat": 14,
+      "fiber": 2.1,
+      "sugar": 4.0,
+      "sodium": 396,
+      "source": "default"
+    },
+    "hot_dog": {
+      "calories": 290,
+      "protein": 10,
+      "carbs": 4,
+      "fat": 26,
+      "fiber": 0.1,
+      "sugar": 1.2,
+      "sodium": 1090,
+      "source": "default"
+    },
+    "french_fries": {
+      "calories": 365,
+      "protein": 4,
+      "carbs": 63,
+      "fat": 17,
+      "fiber": 3.8,
+      "sugar": 0.3,
+      "sodium": 246,
+      "source": "default"
+    },
+    "sandwich": {
+      "calories": 250,
+      "protein": 12,
+      "carbs": 30,
+      "fat": 8,
+      "fiber": 2.0,
+      "sugar": 3.5,
+      "sodium": 450,
+      "source": "default"
+    },
+    "ice_cream": {
+      "calories": 207,
+      "protein": 3.5,
+      "carbs": 24,
+      "fat": 11,
+      "fiber": 0.7,
+      "sugar": 21,
+      "sodium": 80,
+      "source": "default"
+    },
+    "cake": {
+      "calories": 257,
+      "protein": 4,
+      "carbs": 46,
+      "fat": 7,
+      "fiber": 1.2,
+      "sugar": 35,
+      "sodium": 242,
+      "source": "default"
+    },
+    "cookie": {
+      "calories": 502,
+      "protein": 5.9,
+      "carbs": 64,
+      "fat": 24,
+      "fiber": 2.4,
+      "sugar": 40,
+      "sodium": 386,
+      "source": "default"
+    },
+    "donut": {
+      "calories": 452,
+      "protein": 5,
+      "carbs": 51,
+      "fat": 25,
+      "fiber": 1.7,
+      "sugar": 23,
+      "sodium": 375,
+      "source": "default"
+    },
+    "chocolate": {
+      "calories": 546,
+      "protein": 4.9,
+      "carbs": 61,
+      "fat": 31,
+      "fiber": 7,
+      "sugar": 48,
+      "sodium": 24,
+      "source": "default"
+    },
+    "milk": {
+      "calories": 42,
+      "protein": 3.4,
+      "carbs": 5,
+      "fat": 1,
+      "fiber": 0,
+      "sugar": 5,
+      "sodium": 44,
+      "source": "default"
+    },
+    "coffee": {
+      "calories": 2,
+      "protein": 0.3,
+      "carbs": 0,
+      "fat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 5,
+      "source": "default"
+    },
+    "tea": {
+      "calories": 1,
+      "protein": 0,
+      "carbs": 0.3,
+      "fat": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "sodium": 3,
+      "source": "default"
+    },
+    "soda": {
+      "calories": 41,
+      "protein": 0,
+      "carbs": 10.6,
+      "fat": 0,
+      "fiber": 0,
+      "sugar": 10.6,
+      "sodium": 6,
+      "source": "default"
+    },
+    "cheese": {
+      "calories": 402,
+      "protein": 25,
+      "carbs": 1.3,
+      "fat": 33,
+      "fiber": 0,
+      "sugar": 0.5,
+      "sodium": 653,
+      "source": "default"
+    },
+    "yogurt": {
+      "calories": 59,
+      "protein": 10,
+      "carbs": 3.6,
+      "fat": 0.4,
+      "fiber": 0,
+      "sugar": 3.2,
+      "sodium": 36,
+      "source": "default"
+    },
+    "butter": {
+      "calories": 717,
+      "protein": 0.9,
+      "carbs": 0.1,
+      "fat": 81,
+      "fiber": 0,
+      "sugar": 0.1,
+      "sodium": 643,
+      "source": "default"
+    },
+    "almonds": {
+      "calories": 579,
+      "protein": 21,
+      "carbs": 22,
+      "fat": 50,
+      "fiber": 12,
+      "sugar": 4.4,
+      "sodium": 1,
+      "source": "default"
+    },
+    "walnuts": {
+      "calories": 654,
+      "protein": 15,
+      "carbs": 14,
+      "fat": 65,
+      "fiber": 6.7,
+      "sugar": 2.6,
+      "sodium": 2,
+      "source": "default"
+    },
+    "peanuts": {
+      "calories": 567,
+      "protein": 26,
+      "carbs": 16,
+      "fat": 49,
+      "fiber": 8.5,
+      "sugar": 4.7,
+      "sodium": 18,
+      "source": "default"
+    }
+  },
+  "learning_data": {
+    "corrections": [
+      {
+        "id": 1,
+        "predicted": "unknown food item",
+        "correct": "all out rcb",
+        "confidence": 0.0,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T11:40:50.283950"
+      },
+      {
+        "id": 2,
+        "predicted": "strawberry",
+        "correct": "apple",
+        "confidence": 13.636251278221609,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:05:58.275628"
+      },
+      {
+        "id": 3,
+        "predicted": "strawberry",
+        "correct": "apple",
+        "confidence": 13.636251278221609,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:06:34.268914"
+      },
+      {
+        "id": 4,
+        "predicted": "bell pepper",
+        "correct": "apple",
+        "confidence": 11.244262028485537,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:12:34.543264"
+      },
+      {
+        "id": 5,
+        "predicted": "apple",
+        "correct": "strawberry",
+        "confidence": 57.21363607048989,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:13:29.113398"
+      },
+      {
+        "id": 6,
+        "predicted": "apple",
+        "correct": "strawberry",
+        "confidence": 57.21363607048989,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:24:46.863467"
+      },
+      {
+        "id": 7,
+        "predicted": "potpie",
+        "correct": "chicken biryani",
+        "confidence": 10.948267877101898,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:26:02.626375"
+      },
+      {
+        "id": 8,
+        "predicted": "chocolate sauce",
+        "correct": "ice cream",
+        "confidence": 10.052905791671947,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:26:47.975579"
+      },
+      {
+        "id": 9,
+        "predicted": "chicken biryani",
+        "correct": "potpie",
+        "confidence": 57.43510538339614,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:29:17.215977"
+      },
+      {
+        "id": 10,
+        "predicted": "apple",
+        "correct": "chicken biryani",
+        "confidence": 13.052452486939726,
+        "feedback_type": "correction",
+        "timestamp": "2025-08-26T12:32:10.579538"
+      }
+    ],
+    "user_confirmations": [
+      {
+        "id": 2,
+        "predicted": "cheeseburger",
+        "correct": "cheeseburger",
+        "confidence": 49.85817193984986,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T11:45:23.600550"
+      },
+      {
+        "id": 4,
+        "predicted": "coffee mug",
+        "correct": "coffee mug",
+        "confidence": 14.37647730112076,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:06:55.159696"
+      },
+      {
+        "id": 4,
+        "predicted": "apple",
+        "correct": "apple",
+        "confidence": 15.681688969954848,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:12:12.388443"
+      },
+      {
+        "id": 5,
+        "predicted": "apple",
+        "correct": "apple",
+        "confidence": 12.930901332758365,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:12:45.256047"
+      },
+      {
+        "id": 7,
+        "predicted": "strawberry",
+        "correct": "strawberry",
+        "confidence": 100.0,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:24:54.244500"
+      },
+      {
+        "id": 7,
+        "predicted": "apple",
+        "correct": "apple",
+        "confidence": 15.681688969954848,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:25:23.602145"
+      },
+      {
+        "id": 8,
+        "predicted": "chicken biryani",
+        "correct": "chicken biryani",
+        "confidence": 100.0,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:26:18.608931"
+      },
+      {
+        "id": 9,
+        "predicted": "ice cream",
+        "correct": "ice cream",
+        "confidence": 99.99998807907104,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:28:01.950459"
+      },
+      {
+        "id": 10,
+        "predicted": "potpie",
+        "correct": "potpie",
+        "confidence": 100.0,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:29:29.527368"
+      },
+      {
+        "id": 10,
+        "predicted": "chicken biryani",
+        "correct": "chicken biryani",
+        "confidence": 99.99999403953552,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:31:15.026411"
+      },
+      {
+        "id": 11,
+        "predicted": "chicken biryani",
+        "correct": "chicken biryani",
+        "confidence": 100.0,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:32:23.457156"
+      }
+    ],
+    "confidence_feedback": [],
+    "total_corrections": 10,
+    "accuracy_history": [],
+    "last_updated": "2025-08-26T12:32:23.457156"
+  },
+  "statistics": {
+    "total_predictions": 21,
+    "correct_predictions": 11,
+    "accuracy_rate": 52.38095238095239,
+    "high_confidence_accuracy": 100.0,
+    "low_confidence_accuracy": 33.33333333333333,
+    "model_performance": {
+      "resnet50": {
+        "predictions": 0,
+        "accuracy": 0.0
+      },
+      "efficientnet": {
+        "predictions": 0,
+        "accuracy": 0.0
+      },
+      "inception": {
+        "predictions": 0,
+        "accuracy": 0.0
+      }
+    },
+    "low_confidence_predictions": 15,
+    "low_confidence_correct": 5,
+    "high_confidence_predictions": 6,
+    "high_confidence_correct": 6
+  },
+  "web_scraping": {
+    "total_searches": 13,
+    "successful_searches": 0,
+    "cache_hits": 0,
+    "last_scraping_update": "2025-08-26T11:39:14.943888",
+    "sources_used": {
+      "google_search": 0,
+      "usda_database": 0,
+      "openfoodfacts": 0
+    }
+  },
+  "system_config": {
+    "version": "2.0.0",
+    "created_date": "2025-08-26T11:39:14.943888",
+    "features": {
+      "multi_model_detection": true,
+      "web_nutrition_scraping": true,
+      "advanced_feedback": true,
+      "real_time_analytics": true,
+      "camera_detection": true
+    }
+  }
+}
