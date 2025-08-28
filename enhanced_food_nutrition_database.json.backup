@@ -399,6 +399,15 @@
       "sugar": 4.7,
       "sodium": 18,
       "source": "default"
+    },
+    "bagel": {
+      "calories": 229.0,
+      "protein": 7.8,
+      "carbs": 42.0,
+      "fat": 2.2,
+      "fiber": 2.6,
+      "sugar": 4.4,
+      "sodium": 75.2
     }
   },
   "learning_data": {
@@ -572,19 +581,43 @@
         "confidence": 100.0,
         "feedback_type": "confirmation",
         "timestamp": "2025-08-26T12:32:23.457156"
+      },
+      {
+        "id": 11,
+        "predicted": "apple",
+        "correct": "apple",
+        "confidence": 15.681688969954848,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-26T12:32:36.941025"
+      },
+      {
+        "id": 11,
+        "predicted": "bagel",
+        "correct": "bagel",
+        "confidence": 49.35947477817536,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-28T11:35:31.598591"
+      },
+      {
+        "id": 11,
+        "predicted": "bagel",
+        "correct": "bagel",
+        "confidence": 49.35947477817536,
+        "feedback_type": "confirmation",
+        "timestamp": "2025-08-28T11:43:08.112314"
       }
     ],
     "confidence_feedback": [],
     "total_corrections": 10,
     "accuracy_history": [],
-    "last_updated": "2025-08-26T12:32:23.457156"
+    "last_updated": "2025-08-28T11:43:08.112314"
   },
   "statistics": {
-    "total_predictions": 21,
-    "correct_predictions": 11,
-    "accuracy_rate": 52.38095238095239,
+    "total_predictions": 24,
+    "correct_predictions": 14,
+    "accuracy_rate": 58.333333333333336,
     "high_confidence_accuracy": 100.0,
-    "low_confidence_accuracy": 33.33333333333333,
+    "low_confidence_accuracy": 44.44444444444444,
     "model_performance": {
       "resnet50": {
         "predictions": 0,
@@ -599,14 +632,14 @@
         "accuracy": 0.0
       }
     },
-    "low_confidence_predictions": 15,
-    "low_confidence_correct": 5,
+    "low_confidence_predictions": 18,
+    "low_confidence_correct": 8,
     "high_confidence_predictions": 6,
     "high_confidence_correct": 6
   },
   "web_scraping": {
-    "total_searches": 13,
-    "successful_searches": 0,
+    "total_searches": 14,
+    "successful_searches": 1,
     "cache_hits": 0,
     "last_scraping_update": "2025-08-26T11:39:14.943888",
     "sources_used": {

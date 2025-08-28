@@ -147,6 +147,71 @@ class WebNutritionScraper:
         except Exception as e:
             logger.error(f"MyFitnessPal search failed for {food_name}: {e}")
             return None
+
+    def search_nutrition_openfoodfacts(self, food_name):
+        """Search OpenFoodFacts for a food and return per-100g nutritions if available.
+
+        Returns a dict like {calories, protein, carbs, fat, fiber, sugar, sodium, source}
+        or None if nothing useful was found.
+        """
+        try:
+            clean = urllib.parse.quote_plus(food_name)
+            url = f"https://world.openfoodfacts.org/cgi/search.pl?search_terms={clean}&search_simple=1&action=process&json=1&page_size=6"
+            resp = requests.get(url, headers=self.headers, timeout=self.timeout)
+            if resp.status_code != 200:
+                return None
+
+            data = resp.json()
+            products = data.get('products', [])
+            if not products:
+                return None
+
+            # Try to find the best product with nutrition info per 100g
+            for p in products:
+                nutriments = p.get('nutriments', {})
+                if not nutriments:
+                    continue
+
+                # calories may be under 'energy-kcal_100g' or 'energy_100g' (kJ)
+                kcal = nutriments.get('energy-kcal_100g') or nutriments.get('energy_100g')
+                protein = nutriments.get('proteins_100g')
+                carbs = nutriments.get('carbohydrates_100g') or nutriments.get('carbohydrates_value')
+                fat = nutriments.get('fat_100g')
+                fiber = nutriments.get('fiber_100g')
+                sugar = nutriments.get('sugars_100g')
+                salt = nutriments.get('salt_100g')
+
+                if any(v is not None for v in [kcal, protein, carbs, fat]):
+                    # Convert to numeric where possible
+                    def _num(x):
+                        try:
+                            return float(x)
+                        except Exception:
+                            return 'Unknown'
+
+                    sodium = 'Unknown'
+                    if salt not in (None, ''):
+                        try:
+                            # rough conversion: salt (g) -> sodium (mg) via 1g salt ~ 400mg sodium
+                            sodium = float(salt) * 400
+                        except Exception:
+                            sodium = 'Unknown'
+
+                    return {
+                        'calories': _num(kcal),
+                        'protein': _num(protein),
+                        'carbs': _num(carbs),
+                        'fat': _num(fat),
+                        'fiber': _num(fiber) if fiber is not None else 'Unknown',
+                        'sugar': _num(sugar) if sugar is not None else 'Unknown',
+                        'sodium': sodium,
+                        'source': 'openfoodfacts'
+                    }
+
+            return None
+        except Exception as e:
+            logger.debug(f"OpenFoodFacts search failed for {food_name}: {e}")
+            return None
     
     def get_comprehensive_nutrition(self, food_name):
         """Get nutrition data from multiple sources"""
@@ -154,6 +219,7 @@ class WebNutritionScraper:
         
         # Try different sources in order of preference
         sources = [
+            self.search_nutrition_openfoodfacts,
             self.search_nutrition_google,
             self.search_nutrition_usda,
             self.search_nutrition_myfitnesspal
@@ -638,6 +704,99 @@ class EnhancedNutritionDatabase:
             return most_common
         except Exception:
             return None
+
+    def get_nutrition_summary(self, food_name: str) -> dict:
+        """Return a compact summary (per 100g) for calories, protein and fat.
+
+        The summary aggregates values from exact match, close matches in the DB,
+        and any cached scraping results. It returns numeric primary values and
+        range/average information for each metric.
+        """
+        name = food_name.lower().strip()
+
+        candidates = []
+
+        # Exact match first
+        if name in self.data['foods']:
+            entry = self.data['foods'][name]
+            candidates.append((name, entry))
+
+        # Close matches using difflib
+        try:
+            keys = list(self.data.get('foods', {}).keys())
+            close = difflib.get_close_matches(name, keys, n=8, cutoff=0.6)
+            for k in close:
+                if k == name:
+                    continue
+                candidates.append((k, self.data['foods'].get(k, {})))
+        except Exception:
+            pass
+
+        # Include scraping cache entries if present
+        try:
+            for k, v in self.scraping_cache.items():
+                if k == name or name in k or k in name:
+                    candidates.append((k, v.get('data', {})))
+        except Exception:
+            pass
+
+        # Gather numeric values for each metric
+        def collect(metric):
+            vals = []
+            for _, entry in candidates:
+                val = entry.get(metric)
+                if isinstance(val, (int, float)):
+                    vals.append(float(val))
+            # If still empty, try top-level DB exact/other
+            if not vals and name in self.data.get('foods', {}):
+                val = self.data['foods'][name].get(metric)
+                if isinstance(val, (int, float)):
+                    vals.append(float(val))
+            return vals
+
+        cal_vals = collect('calories')
+        prot_vals = collect('protein')
+        fat_vals = collect('fat')
+
+        import statistics
+
+        def summarize(vals):
+            if not vals:
+                return {'min': 'Unknown', 'max': 'Unknown', 'avg': 'Unknown'}
+            mn = min(vals)
+            mx = max(vals)
+            avg = statistics.mean(vals)
+            return {'min': mn, 'max': mx, 'avg': avg}
+
+        cal_sum = summarize(cal_vals)
+        prot_sum = summarize(prot_vals)
+        fat_sum = summarize(fat_vals)
+
+        # Primary display values: use exact match value if present, else average
+        def primary(metric, sums, vals):
+            if name in self.data.get('foods', {}) and isinstance(self.data['foods'][name].get(metric), (int, float)):
+                return float(self.data['foods'][name].get(metric))
+            if vals:
+                return sums['avg']
+            return 'Unknown'
+
+        primary_cal = primary('calories', cal_sum, cal_vals)
+        primary_prot = primary('protein', prot_sum, prot_vals)
+        primary_fat = primary('fat', fat_sum, fat_vals)
+
+        return {
+            'food': food_name,
+            'per_100g': True,
+            'calories': primary_cal,
+            'calories_range': (cal_sum['min'], cal_sum['max']) if cal_sum['min'] != 'Unknown' else ('Unknown', 'Unknown'),
+            'calories_avg': cal_sum['avg'] if cal_sum['avg'] != 'Unknown' else 'Unknown',
+            'protein': primary_prot,
+            'protein_range': (prot_sum['min'], prot_sum['max']) if prot_sum['min'] != 'Unknown' else ('Unknown', 'Unknown'),
+            'protein_avg': prot_sum['avg'] if prot_sum['avg'] != 'Unknown' else 'Unknown',
+            'fat': primary_fat,
+            'fat_range': (fat_sum['min'], fat_sum['max']) if fat_sum['min'] != 'Unknown' else ('Unknown', 'Unknown'),
+            'fat_avg': fat_sum['avg'] if fat_sum['avg'] != 'Unknown' else 'Unknown',
+        }
 
 class EnhancedFeedbackGUI:
     """Enhanced GUI with better user experience and detailed feedback"""
@@ -1368,45 +1527,84 @@ class EnhancedFoodDetectionGUI:
         self.result_text.insert(tk.END, f"• Processed {len(self.detector.models) * 4} image variations\n")
         self.result_text.insert(tk.END, f"• Combined results for accuracy\n")
         
-        # Show nutrition
-        self.display_nutrition(nutrition)
+        # Show nutrition (condensed: calories, protein, fat per 100g with range & avg)
+        try:
+            summary = self.database.get_nutrition_summary(food_name)
+        except Exception as e:
+            logger.error(f"Error getting nutrition summary: {e}")
+            summary = None
+
+        self.display_nutrition(summary or nutrition)
     
     def display_nutrition(self, nutrition):
         """Display nutrition information"""
         for widget in self.nutrition_display.winfo_children():
             widget.destroy()
         
-        # Create nutrition grid
-        grid_frame = tk.Frame(self.nutrition_display, bg='white')
-        grid_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
-        
-        # Title
-        tk.Label(grid_frame, text="Nutrition Facts (per 100g)",
-                font=('Arial', 14, 'bold'), bg='white').grid(row=0, column=0, columnspan=2, pady=(0, 15))
-        
-        # Nutrition items
-        nutrients = [
-            ('🔥 Calories', nutrition.get('calories', 'Unknown'), 'kcal'),
-            ('🥩 Protein', nutrition.get('protein', 'Unknown'), 'g'),
-            ('🍚 Carbohydrates', nutrition.get('carbs', 'Unknown'), 'g'),
-            ('🥑 Fat', nutrition.get('fat', 'Unknown'), 'g'),
-            ('🌾 Fiber', nutrition.get('fiber', 'Unknown'), 'g'),
-            ('🍯 Sugar', nutrition.get('sugar', 'Unknown'), 'g')
-        ]
-        
-        for i, (name, value, unit) in enumerate(nutrients, 1):
-            # Nutrient name
-            tk.Label(grid_frame, text=name, font=('Arial', 12), 
-                    bg='white', anchor='w').grid(row=i, column=0, sticky='w', pady=2)
-            
-            # Nutrient value
-            value_text = f"{value} {unit}" if value != 'Unknown' else 'Unknown'
-            tk.Label(grid_frame, text=value_text, font=('Arial', 12, 'bold'),
-                    bg='white', anchor='e').grid(row=i, column=1, sticky='e', pady=2)
-        
-        # Configure grid
-        grid_frame.columnconfigure(0, weight=1)
-        grid_frame.columnconfigure(1, weight=1)
+        # Create three cards for Calories, Protein, Fat (per 100g)
+        card_frame = tk.Frame(self.nutrition_display, bg='white')
+        card_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        tk.Label(card_frame, text="Nutrition (per 100g)", font=('Arial', 14, 'bold'), bg='white').pack(pady=(0,10))
+
+        def make_card(parent, title, value, value_unit, rng, avg):
+            f = tk.Frame(parent, bg='#ffffff', bd=1, relief=tk.RIDGE, padx=10, pady=8)
+            tk.Label(f, text=title, font=('Arial', 12), bg='#ffffff').pack(anchor='w')
+            val_text = f"{value:.1f} {value_unit}" if isinstance(value, (int, float)) else str(value)
+            tk.Label(f, text=val_text, font=('Arial', 16, 'bold'), bg='#ffffff').pack(anchor='w', pady=(4,2))
+            if isinstance(rng, tuple) and rng[0] != 'Unknown':
+                rng_text = f"Range: {rng[0]:.0f} - {rng[1]:.0f} {value_unit}"
+            else:
+                rng_text = "Range: Unknown"
+            tk.Label(f, text=rng_text, font=('Arial', 10), bg='#ffffff', fg='gray').pack(anchor='w')
+            avg_text = f"Avg: {avg:.1f} {value_unit}" if isinstance(avg, (int, float)) else "Avg: Unknown"
+            tk.Label(f, text=avg_text, font=('Arial', 10), bg='#ffffff', fg='gray').pack(anchor='w')
+            return f
+
+        # Extract values depending on whether summary or raw nutrition dict was passed
+        try:
+            if isinstance(nutrition, dict) and nutrition.get('per_100g'):
+                cal_val = nutrition.get('calories', 'Unknown')
+                cal_rng = nutrition.get('calories_range', ('Unknown', 'Unknown'))
+                cal_avg = nutrition.get('calories_avg', 'Unknown')
+
+                prot_val = nutrition.get('protein', 'Unknown')
+                prot_rng = nutrition.get('protein_range', ('Unknown', 'Unknown'))
+                prot_avg = nutrition.get('protein_avg', 'Unknown')
+
+                fat_val = nutrition.get('fat', 'Unknown')
+                fat_rng = nutrition.get('fat_range', ('Unknown', 'Unknown'))
+                fat_avg = nutrition.get('fat_avg', 'Unknown')
+            else:
+                # Raw nutrition dict: use values directly (assume per 100g)
+                cal_val = nutrition.get('calories', 'Unknown')
+                cal_rng = (cal_val, cal_val) if isinstance(cal_val, (int, float)) else ('Unknown', 'Unknown')
+                cal_avg = cal_val if isinstance(cal_val, (int, float)) else 'Unknown'
+
+                prot_val = nutrition.get('protein', 'Unknown')
+                prot_rng = (prot_val, prot_val) if isinstance(prot_val, (int, float)) else ('Unknown', 'Unknown')
+                prot_avg = prot_val if isinstance(prot_val, (int, float)) else 'Unknown'
+
+                fat_val = nutrition.get('fat', 'Unknown')
+                fat_rng = (fat_val, fat_val) if isinstance(fat_val, (int, float)) else ('Unknown', 'Unknown')
+                fat_avg = fat_val if isinstance(fat_val, (int, float)) else 'Unknown'
+        except Exception as e:
+            logger.error(f"Error preparing nutrition display: {e}")
+            cal_val = prot_val = fat_val = 'Unknown'
+            cal_rng = prot_rng = fat_rng = ('Unknown', 'Unknown')
+            cal_avg = prot_avg = fat_avg = 'Unknown'
+
+        # Arrange three cards horizontally
+        cards_container = tk.Frame(card_frame, bg='white')
+        cards_container.pack(fill=tk.BOTH, expand=True)
+
+        c1 = make_card(cards_container, '🔥 Calories', cal_val, 'kcal', cal_rng, cal_avg)
+        c2 = make_card(cards_container, '🥩 Protein', prot_val, 'g', prot_rng, prot_avg)
+        c3 = make_card(cards_container, '🥑 Fat', fat_val, 'g', fat_rng, fat_avg)
+
+        c1.pack(side=tk.LEFT, expand=True, fill=tk.BOTH, padx=6)
+        c2.pack(side=tk.LEFT, expand=True, fill=tk.BOTH, padx=6)
+        c3.pack(side=tk.LEFT, expand=True, fill=tk.BOTH, padx=6)
     
     def show_feedback_dialog(self, food_name, confidence, nutrition):
         """Show the enhanced feedback dialog"""
